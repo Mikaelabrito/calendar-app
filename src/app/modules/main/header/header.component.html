@@ -1,0 +1,30 @@
+<div class="header">
+  <div class="row" fxLayout fxLayoutAlign="space-between center">
+    <div class="col">
+      <div class="col">
+        <mat-icon aria-hidden="false" fontIcon="menu"></mat-icon>
+        <img alt="Logo" src="./assets/media/logos/logo.png" width="60px" />
+        <label class="title mat-headline-3">Calendar</label>
+      </div>
+      <div class="col button">
+        <button mat-raised-button color="primary">Today</button>
+      </div>
+      <div class="arrows">
+        <button mat-icon-button>
+          <mat-icon style="font-size: 24px">chevron_left</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon style="font-size: 24px">chevron_right</mat-icon>
+        </button>
+      </div>
+      <div class="date-today">
+        <label for="" class="mat-headline-5">{{ selectedDate | date }}</label>
+      </div>
+    </div>
+    <div class="col">
+      <mat-icon aria-hidden="false" fontIcon="search"></mat-icon>
+      <mat-icon aria-hidden="false" fontIcon="settings"></mat-icon>
+      <app-select (onSelected)="changeView($event)"></app-select>
+    </div>
+  </div>
+</div>

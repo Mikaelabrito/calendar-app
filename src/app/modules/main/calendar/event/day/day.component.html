@@ -1,0 +1,26 @@
+<div class="linha-tabela">
+  <div class="column-hour example-list">
+    <div class="example-box" *ngFor="let hora of horas">{{ hora }}:00</div>
+  </div>
+  <div
+    cdkDropList
+    class="colunm-appoiment example-list"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div
+      class="example-box"
+      *ngFor="let movie of movies; let i = index"
+      (click)="openDialog('500ms', '500ms', i); selectedIndex = i"
+      cdkDrag
+      [class.dragging]="draggingIndex === i"
+      (cdkDragStarted)="onDragStarted(i)"
+      (cdkDragEnded)="onDragEnded()"
+      [style.background-color]="selectedIndex == i ? '#673ab7' : ''"
+    >
+        <div class="appointment" *ngIf="!!modalData && selectedIndex == i">
+          <label>{{ modalData.selectedDate }}</label>
+          <label>{{ modalData.selectedHour }}</label>
+        </div>
+    </div>
+  </div>
+</div>
